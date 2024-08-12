@@ -52,7 +52,7 @@ function SignUp() {
       return;
     }
 
-    axios.post('http://localhost:3001/signup', formData)
+    axios.post('https://quizy-iota.vercel.app/signup', formData)
     .then(result => {
       console.log(result);
       toast.success('Signup successful');
