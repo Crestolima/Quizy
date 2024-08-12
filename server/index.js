@@ -19,7 +19,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ["https"],
+    origin: ["https://quizy-iota.vercel.app"],
     methods: ["POST","GET"],
     credentials: true
 }));
