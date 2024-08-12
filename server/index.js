@@ -25,6 +25,13 @@ app.use(cors({
 }));
 app.use('/uploads', express.static('uploads'));
 
+app.use(express.static(path.join(__dirname, '../client')));
+
+// Serve the index.html file for any other routes
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
+});
+
 // Connect to MongoDB database
 // Connect to MongoDB Atlas database
 mongoose.connect(MONGODB_URI, {
