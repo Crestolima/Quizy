@@ -11,6 +11,8 @@ const CourseModel = require('./models/course');
 const MCQModel = require('./models/MCQModel');
 const TestModel = require('./models/test');
 
+MONGODB_URI = "mongodb+srv://JohnnyCage:x111y000@cluster0.m9ftq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
 // Create Express app
 const app = express();
 
@@ -20,11 +22,12 @@ app.use(cors());
 app.use('/uploads', express.static('uploads'));
 
 // Connect to MongoDB database
-mongoose.connect("mongodb://localhost:27017/quizy", {
+// Connect to MongoDB Atlas database
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(() => console.log("Connected to MongoDB"))
-  .catch(err => console.log("Failed to connect to MongoDB", err));
+}).then(() => console.log("Connected to MongoDB Atlas"))
+  .catch(err => console.log("Failed to connect to MongoDB Atlas", err));
 
 // Multer setup for file uploads
 const storage = multer.diskStorage({
