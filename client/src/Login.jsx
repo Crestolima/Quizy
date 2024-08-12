@@ -40,7 +40,7 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:3001/login', formData)
+    axios.post('https://quizy-iota.vercel.app/login', formData)
       .then(result => {
         if (result.data.firstName && result.data.email) {
           login(result.data); // Update the context with user data
